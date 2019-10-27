@@ -103,7 +103,7 @@ export default class CustomToolbarEditor extends Component {
             editorState={this.state.editorState}
             onChange={this.onChange}
             plugins={plugins}
-            placeholder="Tulis ceritamu disini..."
+            placeholder="Write it before gone..."
             ref={element => {
               this.editor = element;
             }}
