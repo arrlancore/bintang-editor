@@ -4,7 +4,6 @@ import Editor, { createEditorStateWithText } from "draft-js-plugins-editor";
 import AddImageButton from "./AddImageButton";
 import { draftjsToMd } from "draftjs-md-converter";
 import { convertToRaw } from "draft-js";
-
 import createToolbarPlugin, { Separator } from "draft-js-static-toolbar-plugin";
 import {
   ItalicButton,
@@ -97,7 +96,7 @@ export default class CustomToolbarEditor extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wrap-editor">
         <div className="editor" onClick={this.focus}>
           <Editor
             editorState={this.state.editorState}
@@ -108,29 +107,29 @@ export default class CustomToolbarEditor extends Component {
               this.editor = element;
             }}
           />
-          <Toolbar className="toolbars">
-            {// may be use React.Fragment instead of div to improve perfomance after React 16
-            externalProps => (
-              <div>
-                <BoldButton {...externalProps} />
-                <ItalicButton {...externalProps} />
-                <UnderlineButton {...externalProps} />
-                <CodeButton {...externalProps} />
-                <Separator {...externalProps} />
-                <HeadlinesButton {...externalProps} />
-                <UnorderedListButton {...externalProps} />
-                <OrderedListButton {...externalProps} />
-                <BlockquoteButton {...externalProps} />
-                <CodeBlockButton {...externalProps} />
-                <AddImageButton
-                  editorState={this.state.editorState}
-                  onChange={this.onChange}
-                  modifier={imagePlugin.addImage}
-                />
-              </div>
-            )}
-          </Toolbar>
         </div>
+        <Toolbar className="toolbars">
+          {// may be use React.Fragment instead of div to improve perfomance after React 16
+          externalProps => (
+            <div>
+              <BoldButton {...externalProps} />
+              <ItalicButton {...externalProps} />
+              <UnderlineButton {...externalProps} />
+              <CodeButton {...externalProps} />
+              <Separator {...externalProps} />
+              <HeadlinesButton {...externalProps} />
+              <UnorderedListButton {...externalProps} />
+              <OrderedListButton {...externalProps} />
+              <BlockquoteButton {...externalProps} />
+              <CodeBlockButton {...externalProps} />
+              <AddImageButton
+                editorState={this.state.editorState}
+                onChange={this.onChange}
+                modifier={imagePlugin.addImage}
+              />
+            </div>
+          )}
+        </Toolbar>
       </div>
     );
   }

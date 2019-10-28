@@ -11,9 +11,11 @@
   box-shadow: inset 0px 1px 5px -3px #ddd;
   background: #fefefe;
   min-width: 400px;
+  max-height: 400px;
+  overflow-x: auto;
 }
 
-.editor div:nth-child(2) > div {
+.wrap-editor > div:nth-child(2) > div {
   display: flex;
   margin-top: 20px;
   justify-content: center;
@@ -29,10 +31,15 @@
 }
 
 .headlineButton {
-  background: #eee;
+  background: rgb(242, 242, 242);
+  background: linear-gradient(
+    180deg,
+    rgba(242, 242, 242, 1) 35%,
+    rgba(212, 212, 212, 1) 100%
+  );
   font-size: 18px;
   vertical-align: bottom;
-  height: 31px;
+  height: 33px;
   width: 36px;
   border-width: 1px;
   border-style: solid;
